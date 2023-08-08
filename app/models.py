@@ -7,7 +7,7 @@ class basicinfo(db.Model):
     email = db.Column(db.String(30), nullable=False)
     phone = db.Column(db.String(15), nullable=False)
     address = db.Column(db.String(200), nullable=False)
-    profilePicture = db.Column(db.String(50))
+    profilePicture = db.Column(db.String(50), nullable=True)
     educational_backgrounds = db.relationship(
         'educationalbackground', backref='basicinfo', lazy=True)
     professional_experiences = db.relationship(
@@ -17,7 +17,7 @@ class basicinfo(db.Model):
 class educationalbackground(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     degreeName = db.Column(db.String(20), nullable=False)
-    schoolName = db.Column(db.String(20), nullable=False)
+    schoolName = db.Column(db.String(50), nullable=False)
     passingYear = db.Column(db.Integer, nullable=False)
     percentage = db.Column(db.Float, nullable=False)
     basic_info_id = db.Column(
