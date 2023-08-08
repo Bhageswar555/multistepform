@@ -32,7 +32,7 @@ def validate_educational_form_data(data):
             errors['tenth'] = {'schoolName': 'school name should contain alphabets only'}
         if not tenth.get('passingYear'):
             errors['tenth'] = {'passingYear': 'passing year is required'}
-        elif not tenth.get('passingYear').isdigit() or not (1949< int(tenth.get('passingYear')) < int(datetime.now().year)):
+        elif not tenth.get('passingYear').isdigit() or not (1949< int(tenth.get('passingYear')) <= int(datetime.now().year)):
             errors['tenth'] = {'passingYear': 'invalid passing year.'}
         if not tenth.get('percentage'):
             errors['tenth'] = {'percentage': 'percentage is required'}
@@ -50,7 +50,7 @@ def validate_educational_form_data(data):
             errors['twelfth'] = {'schoolName': 'school name should contain alphabets only'}
         if not twelfth.get('passingYear'):
             errors['twelfth'] = {'passingYear': 'passing year is required'}
-        elif not twelfth.get('passingYear').isdigit() or not (1949< int(twelfth.get('passingYear')) < int(datetime.now().year)):
+        elif not twelfth.get('passingYear').isdigit() or not (1949< int(twelfth.get('passingYear')) <= int(datetime.now().year)):
             errors['twelfth'] = {'passingYear': 'Invalid passing year'}
         if not twelfth.get('percentage'):
             errors['twelfth'] = {'percentage': 'percentage is required'}
@@ -67,7 +67,7 @@ def validate_educational_form_data(data):
             errors['graduation'] = {'schoolName': 'school name should contain alphabets only'}
         if not graduation.get('passingYear'):
             errors['graduation'] = {'passingYear': 'passing year is required'}
-        elif not graduation.get('passingYear').isdigit() or not (1949< int(graduation.get('passingYear')) < datetime.now().year):
+        elif not graduation.get('passingYear').isdigit() or not (1949< int(graduation.get('passingYear')) <= int(datetime.now().year)):
             errors['graduation'] = {'passingYear': 'invalid passing year'}
         if not graduation.get('percentage'):
             errors['graduation'] = {'percentage': 'percentage is required'}
@@ -85,8 +85,8 @@ def validate_educational_form_data(data):
                 errors[f'otherEducation-{i}'] = {'schoolName': 'school name should contain alphabets only'}
             if not item.get('passingYear'):
                 errors[f'otherEducation-{i}'] = {'passingYear': 'passing year is required'}
-            elif not item.get('passingYear').isdigit() or not (1949< int(item.get('passingYear')) < datetime.now().year):
-                errors[f'otherEducation-{i}'] = {'passingYear': 'Invalid passing year'}
+            elif not item.get('passingYear').isdigit() or not (1949< int(item.get('passingYear')) <= int(datetime.now().year)):
+                errors[f'otherEducation-{i}'] = {'passingYear': 'invalid passing year'}
             if not item.get('percentage'):
                 errors[f'otherEducation-{i}'] = {'percentage': 'percentage is required'}
             elif not item.get('percentage').isdigit() or not (0 <= int(item.get('percentage')) <= 100):
